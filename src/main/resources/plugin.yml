@@ -1,0 +1,11 @@
+name: NameTracker
+version: '$version'
+
+main: bradenm.nameTracker.NameTracker
+api-version: '1.21.11'
+load: POSTWORLD
+
+commands:
+  nametracker:
+    description: View all usernames a player has used on the server and search players by past usernames.
+    usage: /nametracker <player> or /nametracker lookup <name>

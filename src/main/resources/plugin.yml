@@ -9,3 +9,6 @@ commands:
   nametracker:
     description: View all usernames a player has used on the server and search players by past usernames.
     usage: /nametracker <player> or /nametracker lookup <name>
+  reloadnametracker:
+    description: Reload nametracker's database.
+    usage: /reloadnametracker

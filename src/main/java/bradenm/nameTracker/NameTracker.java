@@ -15,11 +15,15 @@ public final class NameTracker extends JavaPlugin {
     @Override
     public void onEnable() {
         createDataFile();
+
         getServer().getPluginManager().registerEvents(new JoinListener(this), this);
+
         getCommand("nametracker").setExecutor(new NameTrackerCommand(this));
+        getCommand("reloadnametracker").setExecutor(new ReloadCommand(this));
     }
 
     private void createDataFile() {
+
         if (!getDataFolder().exists()) {
             getDataFolder().mkdirs();
         }
@@ -47,5 +51,9 @@ public final class NameTracker extends JavaPlugin {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void reloadData() {
+        data = YamlConfiguration.loadConfiguration(file);
     }
 }

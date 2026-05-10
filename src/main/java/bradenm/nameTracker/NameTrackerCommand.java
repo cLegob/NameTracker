@@ -26,7 +26,12 @@ public class NameTrackerCommand implements CommandExecutor {
     public boolean onCommand(@NonNull CommandSender sender,
                              @NonNull Command command,
                              @NonNull String label,
-                             String[] args) {
+                             String @NonNull [] args) {
+
+        if (!sender.hasPermission("nametracker")) {
+            sender.sendMessage(Component.text("You do not have permission to use this command.", NamedTextColor.RED));
+            return true;
+        }
 
         FileConfiguration data = plugin.getData();
 

@@ -109,8 +109,8 @@ public class NameTrackerCommand implements CommandExecutor {
 
         if (!data.contains(path)) {
             sender.sendMessage(
-                    Component.text(target.getName() + " is not in the NameTracker database for this server.", NamedTextColor.GRAY)
-                            .hoverEvent(Component.text("They may have never joined, or have not joined since NameTracker was enabled."))
+                    Component.text(target.getName() + " is not in the NameTracker database for this server. Try /nametracker lookup?", NamedTextColor.GRAY)
+                            .hoverEvent(Component.text("They may have never joined, have not joined since NameTracker was enabled, or have changed their name."))
             );
             return true;
         }

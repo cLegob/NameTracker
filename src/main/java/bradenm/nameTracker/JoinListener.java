@@ -44,8 +44,8 @@ public class JoinListener implements Listener {
         // Retrieve existing name history for this player
         List<String> names = data.getStringList(path);
 
-        // If this name is already recorded, do nothing
-        if (names.contains(name)) {
+        // If this name is the most recent entry, do nothing
+        if (!names.isEmpty() && names.getLast().equals(name)) {
             return;
         }
 

@@ -66,10 +66,15 @@ public class NameTrackerCommand implements CommandExecutor {
 
                 sender.sendMessage(
                         Component.text(" - ", NamedTextColor.GRAY)
-                                .append(Component.text(
-                                        latestName != null ? latestName : "Unknown",
-                                        NamedTextColor.WHITE
-                                ))
+                                .append(
+                                        Component.text(
+                                                        latestName != null ? latestName : "Unknown",
+                                                        NamedTextColor.WHITE
+                                                )
+                                                .clickEvent(net.kyori.adventure.text.event.ClickEvent.runCommand(
+                                                        "/nametracker " + latestName
+                                                ))
+                                )
                 );
             }
 
@@ -127,12 +132,8 @@ public class NameTrackerCommand implements CommandExecutor {
                         .append(Component.text(":", NamedTextColor.GRAY))
         );
 
-        for (int i = names.size() - 1; i >= 0; i--) {
-
+        for (int i = names.size() - 2; i >= 0; i--) {
             String name = names.get(i);
-
-            if (Objects.equals(name, targetName)) continue;
-
             sender.sendMessage(
                     Component.text(" - ", NamedTextColor.GRAY)
                             .append(Component.text(name, NamedTextColor.WHITE))

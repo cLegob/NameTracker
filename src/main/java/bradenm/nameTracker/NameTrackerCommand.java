@@ -80,7 +80,7 @@ public class NameTrackerCommand implements CommandExecutor {
 
             if (!found) {
                 sender.sendMessage(
-                        Component.text("No players found with that name.", NamedTextColor.GRAY)
+                        Component.text("That name is not in the NameTracker database for this server.", NamedTextColor.GRAY)
                 );
             }
 
@@ -109,7 +109,7 @@ public class NameTrackerCommand implements CommandExecutor {
 
         if (!data.contains(path)) {
             sender.sendMessage(
-                    Component.text(target.getName() + " is not in the NameTracker database for this server. Try /nametracker lookup?", NamedTextColor.GRAY)
+                    Component.text("No players found with that name. Try /nametracker lookup?", NamedTextColor.GRAY)
                             .hoverEvent(Component.text("They may have never joined, have not joined since NameTracker was enabled, or have changed their name."))
             );
             return true;
